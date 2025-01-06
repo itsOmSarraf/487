@@ -42,10 +42,6 @@ const TeamComponent = () => {
                                 e.stopPropagation();
                                 setHoveredMember(null);
                             }}
-                            style={{
-                                transform: `translateY(${index === 0 || index === 1 ? '-25%' : index === 2 || index === 3 ? '25%' : '0'})`,
-
-                            }}
                         >
                             <Image
                                 src={member.imageUrl}
