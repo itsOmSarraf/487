@@ -34,7 +34,7 @@ const TeamComponent = () => {
                         <div
                             key={index}
                             className={`relative transition-all duration-300 cursor-pointer z-10
-                                ${hoveredMember ? (hoveredMember === member ? 'opacity-100' : 'opacity-0') : 'opacity-100'}`}
+                                ${hoveredMember ? 'opacity-0' : 'opacity-100'}`}
                             onMouseEnter={(e) => {
                                 e.stopPropagation();
                                 setHoveredMember(member);
