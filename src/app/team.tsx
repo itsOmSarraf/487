@@ -2,9 +2,8 @@
 import Image from "next/image";
 import { teamMembers } from "./teamMembers"
 import { useState } from "react";
-
-
-import LinkedIn from "./favicon.ico";
+import Link from "next/link";
+import { FaLinkedinIn } from "react-icons/fa6";
 type TeamMember = {
     name: string;
     role: string;
@@ -34,7 +33,7 @@ const TeamComponent = () => {
                         <div
                             key={index}
                             className={`relative transition-all duration-300 cursor-pointer z-10
-                                ${hoveredMember ? 'opacity-0' : 'opacity-100'}`}
+                                ${hoveredMember ? (hoveredMember === member ? 'opacity-0' : 'opacity-0') : 'opacity-100'}`}
                             onMouseEnter={(e) => {
                                 e.stopPropagation();
                                 setHoveredMember(member);
@@ -74,6 +73,14 @@ const TeamComponent = () => {
                     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
                         transition-all duration-300 bg-[#1E1E1E] p-6 rounded-xl w-[400px]
                         ${hoveredMember ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                    onMouseEnter={(e) => {
+                        e.stopPropagation();
+                        setHoveredMember(hoveredMember);
+                    }}
+                    onMouseLeave={(e) => {
+                        e.stopPropagation();
+                        setHoveredMember(null);
+                    }}
                 >
                     {hoveredMember && (
                         <>
@@ -85,29 +92,29 @@ const TeamComponent = () => {
                                     height={200}
                                     className="w-full h-[200px] object-cover rounded-lg mb-4"
                                 />
-                                <a
+                            </div>
+                            <div className="flex w-full justify-between">
+                                <div>
+                                    <h2 className="text-2xl font-bold text-white mb-1">{hoveredMember.name}</h2>
+                                    <p className="text-sm font-mono text-white mb-4">{hoveredMember.role}</p>
+                                </div>
+                                <Link
                                     href="#"
-                                    className="absolute top-4 right-4 bg-white rounded-md p-1"
+                                    className="right-4 bg-white rounded-none p-1 w-7 h-7 flex items-center justify-center"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    <Image
-                                        src={LinkedIn}
-                                        alt="LinkedIn"
-                                        width={20}
-                                        height={20}
-                                        className="w-5 h-5"
+                                    <FaLinkedinIn
+                                        className="w-5 h-5 text-black fill-black"
                                     />
-                                </a>
+                                </Link>
                             </div>
-                            <h2 className="text-2xl font-bold text-white mb-1">{hoveredMember.name}</h2>
-                            <p className="text-sm font-mono text-white mb-4">{hoveredMember.role}</p>
                             <p className="text-sm text-gray-300 mb-4">{hoveredMember.bio}</p>
                             <div className="flex flex-wrap gap-2">
                                 {hoveredMember.tags.map((tag, index) => (
                                     <span
                                         key={index}
-                                        className="px-4 py-1 bg-white/10 rounded-full text-sm text-white"
+                                        className="px-4 py-1 bg-white rounded-md text-sm text-black "
                                     >
                                         {tag}
                                     </span>
