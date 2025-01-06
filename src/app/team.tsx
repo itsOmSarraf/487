@@ -17,7 +17,7 @@ const TeamComponent = () => {
     const [isComponentHovered, setIsComponentHovered] = useState(false);
     const [hoveredImageIndex, setHoveredImageIndex] = useState<number | null>(null);
 
-    const handleOutsideClick = (e: React.MouseEvent) => {
+    const handleOutsideClick = () => {
         if (selectedMember) {
             setSelectedMember(null);
         }
