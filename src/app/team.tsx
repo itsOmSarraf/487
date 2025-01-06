@@ -66,7 +66,7 @@ const TeamComponent = () => {
                 {/* Static Text */}
                 <div className={`text-center transition-opacity duration-300 
                     ${selectedMember ? 'opacity-0' : 'opacity-100'}`}>
-                    <p className="text-4xl font-bold">4</p>
+                    <p className="text-6xl font-bold mb-5">4</p>
                     <p className="text-xl text-center">BUILDING THE FUND <br /> IN AUSTRALIA</p>
                 </div>
 
