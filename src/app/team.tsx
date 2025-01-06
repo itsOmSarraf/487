@@ -44,7 +44,7 @@ const TeamComponent = () => {
                             }}
                             style={{
                                 transform: `translateY(${index === 0 || index === 1 ? '-25%' : index === 2 || index === 3 ? '25%' : '0'})`,
-                                padding: '20px' // Add padding to increase hover area
+
                             }}
                         >
                             <Image
