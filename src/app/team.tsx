@@ -32,13 +32,13 @@ const TeamComponent = () => {
         >
             {/* Team Members Grid */}
             <div className="absolute inset-0 flex justify-center items-center">
-                <div className={`grid grid-cols-2 gap-64 px-16 transition-opacity duration-300 
-                    ${isComponentHovered ? 'opacity-100' : 'opacity-0'}`}>
+                <div className={`grid grid-cols-2 gap-52 px-16 transition-all duration-300 
+                    ${isComponentHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-95'}`}>
                     {teamMembers.map((member, index) => (
                         <div
                             key={index}
                             className={`relative transition-all duration-300
-                                ${selectedMember ? 'opacity-0' : 'opacity-100'}`}
+                                ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedMember(member);
@@ -53,7 +53,7 @@ const TeamComponent = () => {
                                     width={110}
                                     height={110}
                                     className={`-rotate-45 rounded-md transition-all duration-300
-                                        ${hoveredImageIndex === index ? '' : 'grayscale'}`}
+                                        ${hoveredImageIndex === index ? 'scale-110' : 'grayscale scale-100'}`}
                                 />
                             </div>
                         </div>
@@ -64,17 +64,23 @@ const TeamComponent = () => {
             {/* Center Content with Info Card */}
             <div className="relative -rotate-45">
                 {/* Static Text */}
-                <div className={`text-center transition-opacity duration-300 
-                    ${selectedMember ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`text-center transition-all duration-300 
+                    ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
                     <p className="text-6xl font-bold mb-5">4</p>
                     <p className="text-xl text-center">BUILDING THE FUND <br /> IN AUSTRALIA</p>
                 </div>
 
+                {/* Dark Overlay */}
+                <div className={`fixed inset-0 bg-black transition-opacity duration-300
+                    ${selectedMember ? 'opacity-50' : 'opacity-0 pointer-events-none'}`}
+                    onClick={handleOutsideClick}
+                />
+
                 {/* Info Card */}
                 <div
                     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                        transition-all duration-300 bg-[#1E1E1E] p-6 rounded-xl w-[400px]
-                        ${selectedMember ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
+                        transition-all duration-500 bg-[#1E1E1E] p-6 rounded-xl w-[400px] z-50
+                        ${selectedMember ? 'opacity-100 scale-105' : 'opacity-0 scale-90 pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {selectedMember && (
@@ -95,7 +101,7 @@ const TeamComponent = () => {
                                 </div>
                                 <Link
                                     href="#"
-                                    className="right-4 mt-3 bg-white rounded-none w-4 h-4 flex items-center justify-center"
+                                    className="right-4 mt-3 bg-white rounded-none w-4 h-4 flex items-center justify-center hover:scale-110 transition-transform duration-200"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -109,7 +115,7 @@ const TeamComponent = () => {
                                 {selectedMember.tags.map((tag, index) => (
                                     <span
                                         key={index}
-                                        className="px-4 py-1 bg-white rounded-md text-sm text-black "
+                                        className="px-4 py-1 bg-white rounded-md text-sm text-black hover:scale-105 transition-transform duration-200"
                                     >
                                         {tag}
                                     </span>

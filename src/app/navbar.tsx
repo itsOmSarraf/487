@@ -55,7 +55,7 @@ export default function Navbar() {
                 <Image src="/favicon.ico" alt="SSV" width={25} height={25} />
                 <p className="font-bold">SSV</p>
             </div>
-            <div className="flex gap-14"> {/* Increased gap for better spacing */}
+            <div className="flex gap-14">
                 {["PORTFOLIO", "TEAM", "ETHOS"].map((item) => (
                     <NavItem key={item} text={item} />
                 ))}
