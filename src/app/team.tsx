@@ -75,7 +75,10 @@ const TeamComponent = () => {
                 <div
                     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2
                         bg-[#1E1E1E] p-6 rounded-xl w-[450px] z-50 cursor-pointer
-                        ${selectedMember ? 'opacity-100 -translate-y-1/2' : 'hidden'}`}
+                        transition-all duration-500 ease-in-out
+                        ${selectedMember
+                            ? 'opacity-100 -translate-y-1/2'
+                            : 'opacity-0 translate-y-full pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {selectedMember && (
