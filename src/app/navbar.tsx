@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import { useState } from "react";
-
+import Logo from "./logo.svg"
 interface NavItemProps {
     text: string;
 }
@@ -52,8 +52,8 @@ export default function Navbar() {
     return (
         <nav className="w-full flex justify-between px-6 py-2 text-2xl">
             <div className="w-1/2 flex gap-3">
-                <Image src="/favicon.ico" alt="SSV" width={25} height={25} />
-                <p className="font-bold">SSV</p>
+                <Image src={Logo} alt="SSV" width={75} height={75} />
+                {/* <p className="font-bold">SSV</p> */}
             </div>
             <div className="flex gap-14">
                 {["PORTFOLIO", "TEAM", "ETHOS"].map((item) => (

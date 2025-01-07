@@ -52,7 +52,7 @@ const TeamComponent = () => {
                                     alt={member.name}
                                     width={110}
                                     height={110}
-                                    className={`-rotate-45 rounded-md transition-all duration-300
+                                    className={`-rotate-45 rounded-[4px] transition-all duration-300
                                         ${hoveredImageIndex === index ? 'scale-110' : 'grayscale scale-100'}`}
                                 />
                             </div>
@@ -79,7 +79,7 @@ const TeamComponent = () => {
                 {/* Info Card */}
                 <div
                     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                        transition-all duration-500 bg-[#1E1E1E] p-6 rounded-xl w-[400px] z-50
+                        transition-all duration-500 bg-[#1E1E1E] p-6 rounded-xl w-[450px] z-50
                         ${selectedMember ? 'opacity-100 scale-105' : 'opacity-0 scale-90 pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
@@ -94,28 +94,29 @@ const TeamComponent = () => {
                                     className="w-full h-[200px] object-cover rounded-lg mb-4"
                                 />
                             </div>
-                            <div className="flex w-full justify-between">
-                                <div>
+                            <div className="flex flex-col w-full justify-between">
+                                <div className="flex w-full justify-between">
                                     <h2 className="text-2xl font-bold text-white mb-1 uppercase">{selectedMember.name}</h2>
-                                    <p className="text-sm font-mono text-white mb-4 uppercase">{selectedMember.role}</p>
+                                    <Link
+                                        href="#"
+                                        className="right-4 bg-white rounded-none w-4 h-4 flex items-center justify-center hover:scale-110 transition-transform duration-200 self-center"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaLinkedinIn
+                                            className="w-3 h-3 text-black fill-black"
+                                        />
+                                    </Link>
                                 </div>
-                                <Link
-                                    href="#"
-                                    className="right-4 mt-3 bg-white rounded-none w-4 h-4 flex items-center justify-center hover:scale-110 transition-transform duration-200"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <FaLinkedinIn
-                                        className="w-3 h-3 text-black fill-black"
-                                    />
-                                </Link>
+                                <p className="text-sm text-white mb-4 uppercase font-mono">{selectedMember.role}</p>
+
                             </div>
-                            <p className="text-sm text-gray-300 mb-4">{selectedMember.bio}</p>
+                            <p className="text-sm text-white mb-4 font-['ABC_Diatype_Mono']">{selectedMember.bio}</p>
                             <div className="flex flex-wrap gap-2">
                                 {selectedMember.tags.map((tag, index) => (
                                     <span
                                         key={index}
-                                        className="px-4 py-1 bg-white rounded-md text-sm text-black hover:scale-105 transition-transform duration-200"
+                                        className="px-2 py-1 bg-white rounded-[4px] text-[10px] text-black transition-transform duration-200 font-['ABC_Diatype_Mono']"
                                     >
                                         {tag}
                                     </span>
