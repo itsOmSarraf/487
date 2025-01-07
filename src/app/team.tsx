@@ -31,14 +31,15 @@ const TeamComponent = () => {
             onClick={handleOutsideClick}
         >
             {/* Team Members Grid */}
-            <div className="absolute inset-0 flex justify-center items-center">
+            <div className="absolute inset-0 flex justify-center items-center rotate-35">
                 <div className={`grid grid-cols-2 gap-52 px-16 transition-all duration-300 
                     ${isComponentHovered ? 'opacity-100 scale-105' : 'opacity-0 scale-95'}`}>
                     {teamMembers.map((member, index) => (
                         <div
                             key={index}
                             className={`relative transition-all duration-300 cursor-pointer
-                                ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
+                                ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
+                                ${index === 1 || index === 3 ? 'mt-12' : ''}`}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedMember(member);
@@ -52,7 +53,7 @@ const TeamComponent = () => {
                                     alt={member.name}
                                     width={110}
                                     height={110}
-                                    className={`rotate- rounded-[4px] transition-all duration-300
+                                    className={`-rotate-35 rounded-[4px] transition-all duration-300
                                         ${hoveredImageIndex === index ? 'scale-110' : 'grayscale scale-100'}`}
                                 />
                             </div>
