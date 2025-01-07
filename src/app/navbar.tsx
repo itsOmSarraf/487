@@ -50,12 +50,12 @@ const NavItem = ({ text }: NavItemProps) => {
 
 export default function Navbar() {
     return (
-        <nav className="w-full flex justify-between px-6 py-2 text-[16px]">
+        <nav className="w-full flex justify-between p-8 pt-4 text-[16px]">
             <div className="w-1/2 flex gap-3">
                 <Image src={Logo} alt="SSV" width={75} height={75} />
                 {/* <p className="font-bold">SSV</p> */}
             </div>
-            <div className="flex gap-14">
+            <div className="flex gap-6">
                 {["PORTFOLIO", "TEAM", "ETHOS"].map((item) => (
                     <NavItem key={item} text={item} />
                 ))}
