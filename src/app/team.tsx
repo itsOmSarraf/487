@@ -25,7 +25,7 @@ const TeamComponent = () => {
 
     return (
         <div
-            className="w-1/2 flex flex-col justify-center items-center group relative rotate-45"
+            className="w-1/2 flex flex-col justify-center items-center group relative"
             onMouseEnter={() => setIsComponentHovered(true)}
             onMouseLeave={() => setIsComponentHovered(false)}
             onClick={handleOutsideClick}
@@ -37,7 +37,7 @@ const TeamComponent = () => {
                     {teamMembers.map((member, index) => (
                         <div
                             key={index}
-                            className={`relative transition-all duration-300
+                            className={`relative transition-all duration-300 cursor-pointer
                                 ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -52,7 +52,7 @@ const TeamComponent = () => {
                                     alt={member.name}
                                     width={110}
                                     height={110}
-                                    className={`-rotate-45 rounded-[4px] transition-all duration-300
+                                    className={`rotate- rounded-[4px] transition-all duration-300
                                         ${hoveredImageIndex === index ? 'scale-110' : 'grayscale scale-100'}`}
                                 />
                             </div>
@@ -62,7 +62,7 @@ const TeamComponent = () => {
             </div>
 
             {/* Center Content with Info Card */}
-            <div className="relative -rotate-45">
+            <div className="relative">
                 {/* Static Text */}
                 <div className={`text-center transition-all duration-300 
                     ${selectedMember ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
@@ -70,17 +70,11 @@ const TeamComponent = () => {
                     <p className="text-xl text-center">BUILDING THE FUND <br /> IN AUSTRALIA</p>
                 </div>
 
-                {/* Dark Overlay */}
-                <div className={`fixed inset-0 bg-black transition-opacity duration-300
-                    ${selectedMember ? 'opacity-50' : 'opacity-0 pointer-events-none'}`}
-                    onClick={handleOutsideClick}
-                />
-
                 {/* Info Card */}
                 <div
                     className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                        transition-all duration-500 bg-[#1E1E1E] p-6 rounded-xl w-[450px] z-50
-                        ${selectedMember ? 'opacity-100 scale-105' : 'opacity-0 scale-90 pointer-events-none'}`}
+                        bg-[#1E1E1E] p-6 rounded-xl w-[450px] z-50 cursor-pointer
+                        ${selectedMember ? 'opacity-100 scale-105 transition-all duration-500' : 'opacity-0 scale-90 pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {selectedMember && (
@@ -99,7 +93,7 @@ const TeamComponent = () => {
                                     <h2 className="text-2xl font-bold text-white mb-1 uppercase">{selectedMember.name}</h2>
                                     <Link
                                         href="#"
-                                        className="right-4 bg-white rounded-none w-4 h-4 flex items-center justify-center hover:scale-110 transition-transform duration-200 self-center"
+                                        className="right-4 bg-white rounded-none w-4 h-4 flex items-center justify-center hover:scale-110 transition-transform duration-200 self-center cursor-pointer"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
