@@ -53,7 +53,7 @@ const TeamComponent = () => {
                                     alt={member.name}
                                     width={110}
                                     height={110}
-                                    className={`-rotate-35 rounded-[4px] transition-all duration-300
+                                    className={`-rotate-35 rounded-[4px] transition-all duration-300 hover:scale-110
                                         ${hoveredImageIndex === index ? 'scale-110' : 'grayscale scale-100'}`}
                                 />
                             </div>
@@ -73,9 +73,9 @@ const TeamComponent = () => {
 
                 {/* Info Card */}
                 <div
-                    className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                    className={`absolute left-1/2 top-1/2 transform -translate-x-1/2 transition-all duration-500 ease-out
                         bg-[#1E1E1E] p-6 rounded-xl w-[450px] z-50 cursor-pointer
-                        ${selectedMember ? 'opacity-100 scale-105 transition-all duration-500' : 'opacity-0 scale-90 pointer-events-none'}`}
+                        ${selectedMember ? 'opacity-100 -translate-y-1/2' : 'opacity-0 translate-y-[100%] pointer-events-none'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {selectedMember && (
