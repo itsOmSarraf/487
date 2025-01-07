@@ -53,7 +53,6 @@ export default function Navbar() {
         <nav className="w-full flex justify-between p-8 pt-4 text-[16px]">
             <div className="w-1/2 flex gap-3">
                 <Image src={Logo} alt="SSV" width={75} height={75} />
-                {/* <p className="font-bold">SSV</p> */}
             </div>
             <div className="flex gap-6">
                 {["PORTFOLIO", "TEAM", "ETHOS"].map((item) => (
