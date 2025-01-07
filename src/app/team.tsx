@@ -78,7 +78,7 @@ const TeamComponent = () => {
                         transition-all duration-500 ease-in-out
                         ${selectedMember
                             ? 'opacity-100 -translate-y-1/2'
-                            : 'opacity-0 translate-y-full pointer-events-none duration-0'}`}
+                            : 'opacity-0 pointer-events-none duration-0'}`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {selectedMember && (
